@@ -4,8 +4,7 @@ explore: retail_sales {}
 
 view: retail_sales {
   derived_table: {
-    sql: CREATE VIEW sales(date,region,Product,category,sales,profit,units_sold,customer_segment) AS
-SELECT '2024-01-01' AS date,'North' AS region,'Smartphone' AS Product,'Electronics' AS category,10000 AS sales,2500 AS profit,100 AS units_sold,'Retail' AS customer_segment
+    sql:SELECT '2024-01-01' AS date,'North' AS region,'Smartphone' AS Product,'Electronics' AS category,10000 AS sales,2500 AS profit,100 AS units_sold,'Retail' AS customer_segment
 UNION ALL
 SELECT '2024-01-02','South','Laptop','Electronics',15000,3000,50,'Corporate'
 UNION ALL
