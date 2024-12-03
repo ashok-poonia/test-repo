@@ -247,8 +247,8 @@ SELECT '2024-01-30','West','Tablet','Electronics',7000,1800,40,'Corporate'
   }
 
 dimension: Date {
-  type: string
-  sql: ${TABLE}.date ;;
+  type: date
+  sql: PARSE_DATE("%Y-%m-%d", ${TABLE}.date) ;;
 }
 
 dimension: Region {
@@ -281,4 +281,12 @@ dimension: unit_sold{
   type: number
   sql: ${TABLE}.unit_sold ;;
 }
+
+measure: profit {
+  label: "Total Profit"
+  type: sum
+  sql: ${TABLE}.profit ;;
+}
+
+measure: sales {}
 }
