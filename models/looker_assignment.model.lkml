@@ -248,7 +248,7 @@ SELECT '2024-01-30','West','Tablet','Electronics',7000,1800,40,'Corporate'
 
 dimension: Date {
   type: date
-  sql: PARSE_DATE("%Y-%m-%d", ${TABLE}.date) ;;
+  sql: DATE(${TABLE}.date) ;;
 }
 
 dimension: Region {
