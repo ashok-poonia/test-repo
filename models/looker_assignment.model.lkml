@@ -247,8 +247,9 @@ SELECT '2024-01-30','West','Tablet','Electronics',7000,1800,40,'Corporate'
   }
 
 dimension: Date {
-  type: date
-  sql: DATE(${TABLE}.date) ;;
+  type: string
+  datatype: date
+  sql: ${TABLE}.date ;;
 }
 
 dimension: Region {
@@ -279,7 +280,7 @@ dimension: Profit {
 dimension: unit_sold{
   label: "Unit Sold"
   type: number
-  sql: ${TABLE}.unit_sold ;;
+  sql: ${TABLE}.units_sold ;;
 }
 
 measure: profit {
@@ -288,5 +289,33 @@ measure: profit {
   sql: ${TABLE}.profit ;;
 }
 
-measure: sales {}
+measure: sales {
+  label: "Total Sales"
+  type: sum
+  sql: ${TABLE}.sales ;;
+}
+
+measure: units {
+  label: "Total Units"
+  type: sum
+  sql: ${TABLE}.units_sold ;;
+}
+
+measure: average_sales {
+  label: "Avg. Sales"
+  type: average
+  sql: ${TABLE}.sales ;;
+}
+
+measure: average_profit{
+  label: "Avg. Profit"
+  type: average
+  sql: ${TABLE}.profit ;;
+}
+
+measure: average_units {
+  label: "Avg. Units"
+  type: average
+  sql: ${TABLE}.units_sold ;;
+}
 }
