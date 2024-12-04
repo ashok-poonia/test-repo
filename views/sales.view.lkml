@@ -242,21 +242,47 @@ SELECT '2024-01-24','South','Smartwatch','Electronics',12000,3600,75,'Consumer'
 ;;
   }
 
-  dimension: date {
+  dimension: Date {
     sql: ${TABLE}.Date ;;
-    type: string
+    type: date
+    convert_tz: no
   }
 
-  dimension: region {
+  dimension: Region {
+    type: string
     sql: ${TABLE}.Region ;;
   }
 
-  dimension: product {
+  dimension: Product {
+    type: string
     sql: ${TABLE}.Product ;;
   }
 
-  dimension: category {
+  dimension: Category {
+    type: string
     sql: ${TABLE}.Category ;;
+  }
+
+  dimension: Sales {
+    type: number
+    sql: ${TABLE}.Sales ;;
+  }
+
+  dimension: Profit {
+    type: number
+    sql: ${TABLE}.Profit ;;
+  }
+
+  dimension: Units_Sold {
+    label: "Units Sold"
+    type: number
+    sql: ${TABLE}.Units_Sold ;;
+  }
+
+  dimension: Customer_Segment {
+    label: "Customer Segment"
+    type: string
+    sql: ${TABLE}.Customer_Segment ;;
   }
 
   measure: total_sales {
@@ -272,9 +298,5 @@ SELECT '2024-01-24','South','Smartwatch','Electronics',12000,3600,75,'Consumer'
   measure: units_sold {
     sql: ${TABLE}.Units_Sold ;;
     type: sum
-  }
-
-  dimension: customer_segment {
-    sql: ${TABLE}.Customer_Segment ;;
   }
 }
